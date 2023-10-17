@@ -1,0 +1,694 @@
+
+<div class="main-panel"
+[ngClass]="[leftBarStatus ? 'leftbarOpen' : 'leftbarClosed', snipetStatus ? 'snnipetOpen' : 'snnipetclosed' ]">
+    <div class="background" [ngClass]="[knowledgeBase ? 'knowledgeBaseSelected-light' : '', chatHistory ? 'chatHistorySelected-light' : '', companyDocuments ? 'companyDocumentsSelected-light' : '']"></div>
+    <!-- Left sidebar start here -->
+    <div class="left-sidebar float-start" 
+    [ngClass]="[chatHistory ? 'chatHistoryActive' : '',companyDocuments ? 'companyDocumentsActive' : '', leftBarStatus ? 'd-block' : 'd-none']">
+        <div class="logo float-start w-100 position-relative">
+            <span class="close-leftbar btn-icon btn-icon-sm rounded-circle cursor-pointer"  (click)="closeLeftbar()">
+                <i class="fa-solid fa-xmark font-16 text-secondary"></i>
+            </span>
+            <a href="#" class="float-start w-100 text-center mb-1">
+                <img src="./assets/images/owl-logo.png" alt="logo" />
+            </a>
+        </div>
+        <div class="tab-wrapper float-start w-100 my-2">
+            <ul>
+                <!-- <li class="float-start cursor-pointer text-center" [ngClass]="knowledgeBase ? 'knowledgeBaseSelected' : ''" (click)="knowledgeBaseSelected()">
+                    <span class="font-14 white-text">FAQ</span>
+                </li> -->
+                <li class="float-start cursor-pointer text-center" [ngClass]="chatHistory ? 'chatHistorySelected' : ''" (click)="chatHistorySelected()">
+                    <!-- <span class="font-12 white-text">Chat <br/> History</span> -->
+                    <span class="font-14 white-text text-medium">History</span>
+                </li>
+                <li class="float-start cursor-pointer text-center" [ngClass]="companyDocuments ? 'companyDocumentsSelected' : ''"(click)="companyDocumentsSelected()" >
+                    <!-- <span class="font-12 white-text">Company Documents</span> -->
+                    <span class="font-14 white-text text-medium">Documents</span>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content float-start w-100">
+            <!-- Chat History start here  -->
+            <div class="history-wrapper float-start w-100 ps-1" *ngIf="chatHistory">
+                <div class="faq-wrapper custom-scrollbar float-start w-100 p-0">
+                    <div class="float-start w-100 mb-1">
+                        <p class="float-start text-secondary font-14 mt-2">Today</p>
+                        <div class="new-action float-end font-14 cursor-pointer px-2 py-1 text-white" [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : '',chatHistory ? 'active chatHistorySelected' : '',companyDocuments ? 'active companyDocumentsSelected' : '']">
+                            <i class="fa-solid fa-plus text-white"></i> Chat
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i> Does company use of renewable energy led to any decrease in its Carbon Emission(CO2e) during the reporting year? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i> Are there initiative reduce energy usage and reducing carbon emission in Apple's Supply Chain? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="float-start w-100 text-secondary font-14 mt-3">Yesterday</p>
+                    <ul>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i> Is Company's supply chain is focused on water stewardship? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="float-start w-100 text-secondary font-14 mt-3">Since Last week</p>
+                    <ul>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i>  Percentage of professinal/technical staff? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i>  Is there any supplier due dilignece in responsible sourcing of minerals? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i> Does apple trains its employee or Business Conduct? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <i class="fa-solid fa-clock-rotate-left me-1 font-14 text-secondary"></i> Do the audit committee reviews or access its privacy policy? 
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Chat History end here  -->
+            <!-- Document view start here -->
+            <div class="document-wrapper float-start w-100 ps-1" *ngIf="companyDocuments">
+                <div class="faq-wrapper custom-scrollbar float-start w-100 p-0">
+                    <div class="float-start w-100 mb-1">
+                        <div class="new-action float-end font-14 cursor-pointer px-2 py-1 text-white" [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : '',chatHistory ? 'active chatHistorySelected' : '',companyDocuments ? 'active companyDocumentsSelected' : '']">
+                            <i class="fa-solid fa-plus text-white"></i> Documents
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/pdf-file.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">Form_10k.pdf</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/pdf-file.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">Audit-and-Finance-Committee-Charter.pdf</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/img_doc.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">2022_Annual_Report.docx</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/pdf-file.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">ESG_report.pdf</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/pdf-file.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">supplier_code_of_conduct.pdf</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/pdf-file.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">Business-Conduct-Policy.pdf</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/pdf-file.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">Policy-Statement-Dec-2023.pdf</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="float-start w-100 position-relative cursor-pointer">
+                            <a class="qsn-chat font-14 text-secondary float-start">
+                                <img src="../../assets/images/img_doc.svg" class="float-start me-2">
+                                <span class="float-start mt-1 overflow-hidden text-secondary">NGC-Charter-Nov-2-Approved.docx</span>
+                            </a>
+                            <div class="action position-absolute">
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-pencil font-14"></i>
+                                </a>
+                                <a class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1">
+                                    <i class="fa-solid fa-trash-can font-14"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Document View end here -->
+        </div>
+    </div>
+    <!-- Left sidebar end here -->
+    <!-- Middle content start here -->
+    <div class="content float-start">
+        <span class="close-leftbar cursor-pointer" 
+        *ngIf="!leftBarStatus"
+        [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : '',chatHistory ? 'active chatHistorySelected' : '',companyDocuments ? 'active companyDocumentsSelected' : '']" (click)="openLeftbar()">
+            <i class="fa-solid fa-bars font-16 text-white"></i>
+        </span>
+        <div class="top-content position-relative">
+            <div class="company-details float-start w-100 mb-2 mt-2">
+                <p class="font-20 text-medium float-start w-100">Brady Corporation <span class="font-12 text-secondary">(OWL Id :OWL00046675)</span></p>
+            </div>
+
+            <div class="search-wrapper float-start w-100 mt-3" [ngClass]="searchResult ? 'd-block' : 'd-none'">
+                <div class="qsn-wraper card position-relative" 
+                [ngClass]="[knowledgeBase ? 'knowledgeBaseSelected' : '',chatHistory ? 'chatHistorySelected' : '',companyDocuments ? 'companyDocumentsSelected' : '']" >
+                    <div class="card-body">
+                        <span class="name-initial position-absolute text-white">PP</span>
+                        <p class="qsn-text font-14 text-white float-start">Does apple taking any step to migrate its climate change? </p>
+                        <!-- <div class="float-end">
+                            <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="Looks good!">
+                                <i class="fa-regular fa-thumbs-up font-14 text-white"></i>
+                            </span>
+                            <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="Not matching">
+                                <i class="fa-regular fa-thumbs-down font-14 text-white"></i>
+                            </span>
+                            <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="Copy">
+                                <i class="fa-regular fa-copy font-14 text-white"></i>
+                            </span>
+                            <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="View Snippet"
+                            (click)="snippetDeselected()" *ngIf="snipetStatus">
+                                <i class="fa-solid fa-eye font-14 text-white"></i>
+                            </span>
+                            <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="View Snippet"
+                            (click)="snippetSelected()" *ngIf="!snipetStatus">
+                                <i class="fa-solid fa-eye font-14 text-white"></i>
+                            </span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body position-relative">
+                        <span class="ai-loader position-absolute text-white position-absolute">
+                            <img src="./assets/images/owl-icon.png" />
+                        </span>
+                        <div class="float-start font-18 text-medium float-start w-100 mb-3">
+                            <span class="float-start text-medium">Summary</span>
+                            <div class="float-end">
+                                <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="Looks good!">
+                                    <i class="fa-regular fa-thumbs-up font-14 text-secondary"></i>
+                                </span>
+                                <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="Not matching">
+                                    <i class="fa-regular fa-thumbs-down font-14 text-secondary"></i>
+                                </span>
+                                <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="Copy">
+                                    <i class="fa-regular fa-copy font-14 text-secondary"></i>
+                                </span>
+                                <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="View Snippet"
+                                (click)="snippetDeselected()" *ngIf="snipetStatus">
+                                    <i class="fa-solid fa-eye font-14 text-secondary"></i>
+                                </span>
+                                <span class="btn-icon btn-icon-sm rounded-circle cursor-pointer float-start me-1" placement="bottom" ngbTooltip="View Snippet"
+                                (click)="snippetSelected()" *ngIf="!snipetStatus">
+                                    <i class="fa-solid fa-eye font-14 text-secondary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="typed-element float-start font-14"></span>
+                    </div>
+                </div>
+                <div class="card rounded mt-3">
+                    <div class="card-body position-relative">
+                        <div class="faq-wrapper float-start w-100">
+                            <div class="float-start w-100">
+                                <ul>
+                                    <li class="float-start w-100 p-2 border-bottom">
+                                        <a class="font-14"><span>Q1. </span>Does company use of renewable energy led to decrease in its Carbon Emission(CO2e) during reporting year? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                                    </li>
+                                    <li class="float-start w-100 p-2 border-bottom">
+                                        <a class="font-14"><span>Q2. </span>Does apple taking any step to migrate its climate change? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                                    </li>
+                                    <li class="float-start w-100 p-2 border-bottom">
+                                        <a class="font-14"><span>Q3. </span>Are there initiative reduce energy usage and reducing carbon emission in Apple's Supply Chain? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-ask position-relative">
+            <div class="faq-wrapper float-start w-100 border" *ngIf="knowledgeBase">
+                <div class="float-start w-100 custom-scrollbar px-2">
+                    <div class="btn-icon btn-icon-sm rounded-circle float-end cursor-pointer text-center mt-2" 
+                    *ngIf="knowledgeBase" (click)="knowledgeBaseReset()">
+                        <i class="fa-solid fa-xmark font-16 "></i>
+                    </div>
+                    <ul>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q1. </span>Does company use of renewable energy led to decrease in its Carbon Emission(CO2e) during reporting year? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q2. </span>Does apple taking any step to migrate its climate change? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q3. </span>Are there initiative reduce energy usage and reducing carbon emission in Apple's Supply Chain? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q4. </span>Is apple aligining its packaging with sustainable goal? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q5. </span>Is Company's supply chain is focused on water stewardship? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q6. </span>Are there any assessments in apple to comply with human right's policy? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q7. </span>Do the audit committee reviews or access its privacy policy? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q8. </span>Does apple trains its employee or Business Conduct? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q9. </span>Is there any supplier due dilignece in responsible sourcing of minerals? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                        <li class="float-start w-100 p-2 border-bottom">
+                            <a class="font-14"><span>Q10. </span>Percentage of professinal/technical staff? <i class="fa-solid fa-arrow-right font-14"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="float-start w-100">
+                <!-- <div class="action-wrapper float-end me-4 mb-1">
+                    <div class="btn-icon btn-icon-sm rounded-circle float-start cursor-pointer text-center" (click)="knowledgeBaseSelected()">
+                        <i class="fa-solid fa-question font-16 "></i>
+                    </div>
+                </div> -->
+                <div class="qsn-box float-start w-100 position-relative">
+                    <textarea class="form-control font-14" placeholder="Ask me anything..."></textarea>
+                    <span class="btn-search position-absolute cursor-pointer" 
+                    [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : '',chatHistory ? 'active chatHistorySelected' : '',companyDocuments ? 'active companyDocumentsSelected' : '']"
+                    (click)="searchResultActive()">
+                        <i class="fa-regular fa-paper-plane font-20 text-white"></i>
+                    </span>
+                    <span class="btn-search btn-faq position-absolute cursor-pointer rounded-circle" 
+                    placement="top" ngbTooltip="knowledge Base" (click)="knowledgeBaseSelected()"
+                    [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : 'inactive',chatHistory ? 'chatHistorySelected' : '',companyDocuments ? 'companyDocumentsSelected' : '']">
+                        <i class="fa-solid fa-flag-checkered font-20 text-secondary"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Middle content end here -->
+    <!-- Right Sidebar start here -->
+    <div class="right-sidebar float-end position-relative" 
+    [ngClass]="[chatHistory ? 'chatHistoryActive' : '',companyDocuments ? 'companyDocumentsActive' : '']"
+    *ngIf="snipetStatus">
+        <p class="float-start w-100 text-center font-14 text-medium mt-2">
+            Snippet
+            
+        <span class="close-snippet float-end cursor-pointer rounded-circle " 
+        *ngIf="!leftBarStatus"
+        [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : '',chatHistory ? 'active chatHistorySelected' : '',companyDocuments ? 'active companyDocumentsSelected' : '']" 
+        (click)="snippetDeselected()">
+            <i class="fa-solid fa-xmark font-16 text-white"></i>
+        </span>
+        </p>
+        <!-- Top tab wrapper start here -->
+        <!-- <div class="tab-wrapper float-start w-100">
+            <ul>
+                <li class="float-start cursor-pointer text-center" [ngClass]="[knowledgeBase ? 'active knowledgeBaseSelected' : '',chatHistory ? 'active chatHistorySelected' : '',companyDocuments ? 'active companyDocumentsSelected' : '']">
+                    <span class="font-12 float-start w-100 text-center">
+                        <span class="tab-name position-relative mr-2">All </span>
+                        <span class="badge">20</span>
+                    </span>
+                </li>
+                <li class="float-start cursor-pointer text-center">
+                    <span class="font-12 float-start w-100 text-center">
+                        <span class="tab-name position-relative mr-2">Form 10K </span>
+                        <span class="badge">5</span>
+                    </span>
+                </li>
+                <li class="float-start cursor-pointer text-center">
+                    <span class="font-12 float-start w-100 text-center">
+                        <span class="tab-name position-relative mr-2">ESG </span>
+                        <span class="badge">5</span>
+                    </span>
+                </li>
+            </ul>
+            <span class="more-icon float-end">
+                <i class="fa-solid fa-ellipsis-vertical"></i>    
+            </span>
+        </div> -->
+        <!-- Top tab wrapper end here -->
+        <!-- Snippet list start here -->
+        <div class="snippet-list-wrapper custom-scrollbar float-start w-100 p-2 ps-0">
+            <ul class="timeline float-start w-100">
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies.</p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+                <li class="timeline-item mb-2 float-start w-100 border">
+                    <div class="name-wrapper float-start w-100 border-bottom p-2">
+                        <div class="float-start mt-1 ">
+                            <span class="pdf-icon float-start me-2"></span>
+                            <span class="pdf-name float-start w-100 text-truncate font-14">Form_10-K.pdf</span>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end" placement="bottom" ngbTooltip="Attach" data-bs-toggle="modal" data-bs-target="#manageSubtopicModal">
+                            <i class="fa-solid fa-paperclip font-14"></i>
+                        </div>
+                        <div class="btn-icon btn-icon-sm custom-popover-action rounded-circle cursor-pointer float-end me-1" 
+                        placement="bottom" ngbTooltip="View Document">
+                            <i class="fa-regular fa-file-lines font-14"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content float-start w-100 p-2">
+                        <p class="text-semibold float-start w-100 font-14 mb-1">
+                            Snippet
+                            <span class="page-nu float-end font-12 text-secondary">Page No. - 11</span>
+                        </p>
+                        <p class="float-start w-100 font-14 mt-1">Although the Company has a U.S. dollar functional currency for reporting purposes, it has manufacturing sites throughout the world and a significant portion of its sales are generated in foreign currencies. <span class="text-secondary font-12">Read more</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Snippet list end here -->
+    </div>
+    <!-- Right Sidebar end here -->
+</div>
