@@ -1,0 +1,450 @@
+@import "variables.scss";
+@import "fonts.scss";
+@import "reset.scss";
+// //*******************------>> Sections <<------*******************
+//      1. Common Classes
+//          1.1 Fonts
+//          1.2 Text
+//          1.3 custom scroll
+//      2. Bootstrap Overright
+//      3. Common Header
+//      4. Home
+
+// 1. Common Classes
+//1.1 Fonts
+.font-10{
+    font-size: 10px;
+}
+.font-12{
+    font-size: 12px;
+}
+.font-14{
+    font-size: 14px;
+    line-height: 20px;
+}
+.font-16{
+    font-size: 16px;
+    line-height: 22px;
+}
+.font-18{
+    font-size: 18px;
+}
+.font-20{
+    font-size: 20px;
+}
+.font-22{
+    font-size: 22px;
+}
+.font-24{
+    font-size: 24px;
+}
+.font-26{
+    font-size: 26px;
+}
+.font-28{
+    font-size: 28px;
+}
+.font-30{
+    font-size: 30px;
+}
+.font-32{
+    font-size: 32px;
+}
+//1.2 Text
+.text-light{
+    font-weight: 300;
+}
+.text-regular{
+    font-weight: 400;
+}
+.text-medium{
+    font-weight: 500;
+}
+.text-semibold{
+    font-weight: 600;
+}
+.text-bold{
+    font-weight: 700;
+}
+.text-itallic{
+    font-style: italic;
+}
+.text-primary{
+    color: $primary !important;
+}
+.text-secondary{
+    color: $secondary !important;
+}
+.text-warning{
+    color: $warning !important;
+}
+.text-danger{
+    color: $danger !important;
+}
+.text-white{
+    color: $white;
+}
+.text-muted{
+    color: $text-200 !important;
+}
+.visibile-none{
+    visibility: hidden;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+// 1.3 custom scroll
+.custom-scrollbar{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #333;
+    }
+    &::-webkit-scrollbar{
+        width: 8px;
+        background-color: #333;
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #333;
+    }
+    &:hover{
+        &::-webkit-scrollbar-thumb{
+            background-color: #b4b5bd;
+        }
+    }
+}
+// 1.4 custom checkbox
+.custom-checkbox{
+
+}
+// 2. Bootstrap Overright
+.collapsing {
+    -webkit-transition: none;
+    transition: none;
+}
+.dropdown{
+    .dropdown-toggle::after{
+        display: none;
+    }
+}
+// .btn, .btn-sm, .btn-lg{
+//     border-radius: 0;
+// }
+.btn-primary{
+    background-color: $primary;
+    border-color: $primary;
+    &:hover, &:focus, &:active{
+        background-color: #218dc1;
+        border-color: #218dc1;
+        outline: none;
+        box-shadow: none;
+    }
+}
+.btn-outline-primary{
+    border-color: $primary;
+    color: $primary;
+    &:hover, &:focus, &:active{
+        border-color: #218dc1;
+        color: #218dc1;
+    }
+}
+.bg-warning{
+    background-color: $warning !important;
+}
+.bg-danger{
+    background-color: $danger !important;
+}
+// 3. Common Header
+.custom-header{
+    .navbar-brand{
+        img{
+            width: 100px;
+        }
+    }
+}
+.custom-file-upload{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input[type='file'] {
+        display: none
+    }
+    label {
+        width: 350px;
+        position: relative;
+        font-size: 1rem;
+        font-weight: 300;
+        cursor: pointer;
+        outline: 0;
+        user-select: none;
+        border: 1px solid rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+        background-color: $white;
+        color: $secondary;
+        padding: 16px;
+        display: flex;
+        &:hover {
+            border-color: hsl(0, 0%, 21%);
+        }
+        &:active {
+            background-color: hsl(0, 0%, 96%);
+        }
+        i {
+            padding-right: 5px;
+        }
+      }
+}
+.header-icon{
+    position: absolute;
+    top: 18px;
+    right: 70px;
+}
+// 4. Home
+.top-info-section{
+    .logo-wrapper{
+        img{
+            width: 125px;
+        }
+    }
+}
+.module-section{
+    // height: 500px;
+    // background-image: url('../images/shapss.svg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: 0 -25px;
+    .top-tab-wrapper{
+        width: 700px;
+        margin: 0 auto;
+        ul{
+            li{
+                position: relative;
+                input[type='radio']{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                }
+                a{
+                    padding: 7px 15px;
+                    cursor: pointer;
+                    color: $secondary;
+                    i{
+                        color: $secondary;
+                    }
+                    &:hover, &:active, &:focus, &:active:focus{
+                        background-color: $primary-100;
+                    }
+                }
+                input[type='radio']:checked + a{
+                    background-color: $primary;
+                    color: $white;
+                    i{
+                        color: $white
+                    }
+                    &:hover, &:active, &:focus, &:active:focus{
+                        background-color: $primary;
+                    }
+                }
+            }
+        }
+    }
+    .document-uploader {
+        width: 350px;
+        margin: 0 auto;
+        .file-content{
+            // border-radius: 5px;
+            background-color: $white;
+            ul{
+                li{
+                    position: relative;
+                    cursor: pointer;
+                    input[type='radio']{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        opacity: 0;
+                    }
+                    .tab-content{
+                        padding: 10px;
+                        img{
+                            width: 30px;
+                        }
+                    }
+                    &:nth-child(1){
+                        input[type='radio']:checked + .tab-content{
+                            background-color: #ffe1e0;
+                        }
+                    }
+                    &:nth-child(2){
+                        input[type='radio']:checked + .tab-content{
+                            background-color: #d9ecdb;
+                        }
+                    }
+                    &:nth-child(3){
+                        input[type='radio']:checked + .tab-content{
+                            background-color: #c7e3ee;
+                        }
+                    }
+                    &:nth-child(4){
+                        input[type='radio']:checked + .tab-content{
+                            background-color: #d9ecdb;
+                        }
+                    }
+                    &:nth-child(1):hover, &:nth-child(1):focus, &:nth-child(1):active, &:nth-child(1):focus:active{
+                        background-color: #ffeceb;
+                    }
+                    &:nth-child(2):hover, &:nth-child(2):focus, &:nth-child(2):active, &:nth-child(2):focus:active{
+                        background-color: #d9ecdb;
+                    }
+                    &:nth-child(3):hover, &:nth-child(3):focus, &:nth-child(3):active, &:nth-child(3):focus:active{
+                        background-color: #e3ecff;
+                    }
+                }
+            }
+        }
+    }
+    // Sidebar Wrapper
+    .sidebar-wrapper {
+        position: fixed;
+        left: 0;
+        top: 53px;
+        background: #202123;
+        width: 200px;
+        height: calc(100% - 60px);
+        height: 93vh;
+        .accordion{
+            .accordion-item{
+                box-shadow: none;
+                position: relative;
+                .accordion-header{
+                    .accordion-button{
+                        padding: 7px 14px 3px 14px;
+                        color: $grey-600;
+                        position: relative;
+                        box-shadow: none;
+                        &::after{
+                            background-image: none;
+                        }
+                        &[aria-expanded="false"]{
+                            .fa-solid::before{
+                                content: '\f055' !important;
+                            }
+                        }
+                        i{
+                            position: absolute;
+                            right: 10px;
+                            top: 10px;
+                            color: $grey-600;
+                        }
+                    }
+                }
+                .accordion-collapse{
+                    .menu-option-wrapper{
+                        .menu-item{
+                            color: #ececf1;
+                            padding: 10px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Question & PDF wrapper
+    .question-pdf-wrapper{
+        padding: 0 0 0 190px;
+        .questions-wrapper{
+            .question-card{
+                height: calc(100vh - 55px);
+                position: relative;
+                .bottom-search-wrapper{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 15px;
+                    width: calc(100% - 30px);
+                    .form-field{
+                        position: relative;
+                        i{
+                            position: absolute;
+                            left: 20px;
+                            top: 17px;
+                            &.submit-icon{
+                                left: unset;
+                                right: 20px;
+                            }
+                        }
+                        .form-control{
+                            border-radius: 7px;
+                            padding: 15px 20px 15px 45px;
+                            &:focus{
+                                box-shadow: none;
+                                outline: none;
+                                border: 1px solid $grey-600;
+                                // box-shadow: 0px 0px 4px $grey-600;
+                            }
+                        }
+                    }
+                }
+            }
+            ul{
+                li{
+                  &.question-item{
+                    border-radius: 3px;
+                  }  
+                }
+            }
+        }
+    }
+    .summarize-wrapper{
+        .summarize-sidebar{
+            width: 150px;
+            padding: 10px 0 8px 8px !important;
+            ul{
+                li{
+                    input{
+                        position: absolute;
+                        right: 5px;
+                        top: 4px;
+                    }
+                }
+            }
+        }
+        .question-pdf-wrapper{
+            padding-left: 140px;
+            .questions-wrapper{
+                .topic-wrapper{
+                    .topic-item{
+                        position: relative;
+                        .label{
+                            position: absolute;
+                            left: 10px;
+                            top: -4px;
+                            background: $white;
+                            padding: 0 7px;
+                        }
+                        .value{
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+            .bottom-search-wrapper{
+                .summarize-btn-wrapper{
+                    .btn{
+                        padding: 13px 12px;
+                    }
+                }
+                .form-field{
+                    width: calc(100% - 120px);
+                }
+            }
+        }
+    }
+}
