@@ -3,13 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingComponent } from './landing/landing.component';
 import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { LandingComponent } from './landing/landing.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './common/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent
+    LandingComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
