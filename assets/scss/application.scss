@@ -154,9 +154,64 @@
     }
 }
 
-// 1.4 custom checkbox
-.custom-checkbox {}
-
+// 1.4 custom checkbox & radio
+.custom-selection {
+    display: block;
+    position: relative;
+    // padding-left: 35px;
+    // margin-bottom: 12px;
+    cursor: pointer;
+    // font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 22px;
+        width: 22px;
+        left: 0;
+        top: 0;
+        &:checked ~ .checkmark {
+          background-color: $blue;
+        }   
+        // &:checked ~ .checkmark:after {
+        //     display: block;
+        // }   
+        &[type='radio'] ~ .checkmark{
+            border-radius: 100%;
+        }
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 22px;
+      width: 22px;
+      background-color: #c6d9e7;
+      &:after {
+        content: "";
+        position: absolute;
+        // display: none;
+      }
+      &:after {
+        left: 8px;
+        top: 5px;
+        width: 6px;
+        height: 10px;
+        border: solid $white;
+        border-width: 0 2.5px 2.5px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    &:hover input ~ .checkmark {
+      background-color: #1e6192;
+    }
+}
 // 1.5 Btn icon
 .btn-icon {
     width: 35px;
@@ -182,8 +237,8 @@
 }
 
 .btn-icon-sm {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
 }
 
 .btn-icon-xs {
@@ -257,6 +312,17 @@ a.btn-icon {
 }
 .bg-blue{
     background-color: $blue;
+}
+.custom-toast{
+    z-index: 6;
+    position: absolute;
+    top: 48px;
+    right: 5px;
+    .btn-close{
+        width: 13px;
+        height: 13px;
+        background-size: 13px;
+    }
 }
 // 2. Bootstrap Overright
 .collapsing {
@@ -348,32 +414,33 @@ a.btn-icon {
 }
 .main-panel{
     height: 100vh;
-    padding: 113px 15px 0 0;
+    padding: 105px 15px 0 0;
     overflow-y: hidden;
     overflow-x: hidden;
 }
 .tab-wrapper {
+    background: #57646e;
+    border-radius: 4px;
+    padding: 5px;
     ul {
         li {
             width: 50%;
-            padding: 6px;
-            border: 1px solid #858585;
-            background-color: #858585;
+            padding: 8px 10px;
+            // border-radius: 4px;
             span{
-                // color: $black-300;
-                color: $white
+                color: #b9c6d1;
             }
             .badge{
-                // color: $black-300;
                 color: $white;
-                background-color: $secondary;
+                background-color: #3a4751;
                 padding: 1px 6px;
                 line-height: 16px;
                 border-radius: 4px;
+                margin-left: 4px;
             }
             &.active {
-                background-color: $blue;
-                border-color: $blue;
+                background-color: #2a7bb6;
+                border-color: #2a7bb6;
                 span{
                     color: $white;
                 }
@@ -382,27 +449,25 @@ a.btn-icon {
                     background-color: $white;
                 }
             }
-            // &:nth-child(1) {
-            //     border-top-left-radius: 7px;
-            //     border-bottom-left-radius: 7px;
-            // }
-            // &:nth-child(2) {
-            //     border-top-right-radius: 7px;
-            //     border-bottom-right-radius: 7px;
-            // }
         }
     }
 }
 
 .left-sidebar {
     position: fixed;
-    left: 10px;
-    top: 113px;
+    left: 5px;
+    top: 105px;
     max-width: 275px;
-    height: 84vh;
+    height: 85vh;
     background-color: $grey-900;
-    padding: 5px;
+    // padding: 10px;
+    z-index: 1;
+    .tab-wrapper{
+        padding: 0;
+        border-radius: 0;
+    }
     .tab-content {
+        padding: 10px;
         .faq-wrapper {
             overflow-y: scroll;
             overflow-x: hidden;
@@ -411,10 +476,23 @@ a.btn-icon {
             .date-group{
                 color: $text-200;
             }
+            .new-btn{
+                border: 1px solid $white;
+                padding: 7px 14px;
+                color: $white;
+                border-radius: 4px;
+                opacity: 0.5;
+                i{
+                    color: $white;
+                }
+                &:hover{
+                    opacity: 1;
+                }
+            }
             ul {
                 li {
-                    border-bottom: 1px solid #5a5a5a;
-                    padding: 10px;
+                    padding: 10px 5px;
+                    border-radius: 4px;
                     .qsn-chat{
                         width: calc(100% - 4px);
                         overflow: hidden;
@@ -425,14 +503,14 @@ a.btn-icon {
                         display: none;
                     }
                     &:hover {
-                        background-color: $blue;
+                        background-color: #505050;
                         .action{
                             padding-left: 25px;
                             display: block;
                             right: 0;
                             top: 7px;
                             background: rgb(255,255,255);
-                            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,123,182,1) 26%, rgba(0,123,182,1) 100%);
+                            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(80 80 80) 26%, rgb(80 80 80) 100%);
                             .btn-icon{
                                 border-color: $white;
                                 i{
@@ -446,14 +524,46 @@ a.btn-icon {
         }
         .document-wrapper{
             .faq-wrapper {
-                ul li  .qsn-chat{
-                    height: 26px;
-                    img{
-                        width: 20px;
-                        margin-top: 4px;
+                ul li  {
+                    opacity: 0.5;
+                    &.selected{
+                        opacity: 1;
                     }
-                    span{
-                        width: calc(100% - 40px);
+                    .qsn-chat{
+                        height: 26px;
+                        img{
+                            width: 20px;
+                            margin-top: 4px;
+                        }
+                        .document-name {
+                            width: calc(100% - 60px);
+                        }
+                        .custom-selection {
+                            top: 4px;
+                            height: 20px;
+                            width: 20px;
+                            margin-right: 8px;
+                            input {
+                                & ~ .checkmark{
+                                    background-color: $white;
+                                }
+                                &:checked ~ .checkmark{
+                                    background-color: $white;
+                                    &::after{
+                                        border-color: #3c3c3c;
+                                        left: 7px;
+                                        top: 4px;
+                                    }
+                                }
+                            }
+                            .checkmark{
+                                height: 20px;
+                                width: 20px;
+                            }
+                        }
+                        .owl-loader-sm {
+                            margin: 4px 3px 0 0;
+                        }
                     }
                 }
             }
@@ -464,25 +574,18 @@ a.btn-icon {
 .content {
     width: calc(100% - 275px);
     margin-left: 275px;
-    // padding-bottom: 130px;
     max-height: 73vh;
     overflow-y: scroll;
     .search-wrapper{
         height: 80vh;
+        display: none;
         .card{
             border: none;
             border-radius: 0;
-            // border-radius: 10px;
-            // border-top-left-radius: 0;
-            // border-top-right-radius: 0;
             &.rounded{
                 border-radius: 10px;
             }
             &.qsn-wraper{
-                // border-radius: 10px;
-                // border-top-left-radius: 0;
-                // border-bottom-left-radius: 0;
-                // border-bottom-right-radius: 0;
                 .name-initial {
                     left: -56px;
                     top: 0px;
@@ -516,7 +619,7 @@ a.btn-icon {
     }
 
     .top-content {
-        height: 84vh;
+        max-height: 84vh;
         max-width: 800px;
         margin: 0 auto;
         padding-bottom: 80px;
@@ -564,7 +667,8 @@ a.btn-icon {
             background: #fff;
             max-height: 75vh;
             animation: 1s slide-up;
-            bottom: 0;
+            bottom: 58px;
+            left: 0;
             box-shadow: 0 0 4px #ccc;
             border-radius: 10px;
             overflow: hidden;
@@ -581,9 +685,8 @@ a.btn-icon {
 .leftbarClosed.snippetclosed .content {
     width: 100%;
 }
-.leftbarClosed.snnipetOpen, .leftbarClosed.snippetHalfViewOpen{
+.summaryHalf{
     .content{
-        // width: calc(100% - 885px);
         width: 540px;
         margin: 0;
         .top-content{
@@ -595,8 +698,25 @@ a.btn-icon {
                 }
             }
             .snippethalfview-wrppaer{
-                width: calc(100% - 15px) !important;
-                // padding: 0 15px;
+                // width: calc(100% - 15px) !important;
+                .timeline-item.active{
+                    background-color: #fbfdff;
+                    .name-wrapper{
+                        background-color: $blue;
+                        border-top-left-radius: 4px;
+                        border-top-right-radius: 4px;
+                        .pdf-name{
+                            color: $white !important;
+                        }
+                        .btn-icon{
+                            background: #134c75;
+                            border: #134c75;
+                            i{
+                                color: $white;
+                            }
+                        }   
+                    }
+                }
             }
         }
         .bottom-ask{
@@ -607,69 +727,53 @@ a.btn-icon {
         }
     }
 }
-.leftbarClosed.snippetHalfViewOpen{
-    .content{
-        &.hide-snippet{
-            .search-wrapper{
-                display: block !important;
-            }
-            .snippethalfview-wrppaer{
-                display: none !important;
-            }
-        }
-        &.show-summary{
-            .search-wrapper{
-                display: none !important;
-            }
-            .snippethalfview-wrppaer{
-                display: block !important;
-            }
-        }
-    }
-    .top-content{
-        .tab-wrapper{
-            // padding-left: 15px;
-            width: calc(100% - 10px) !important;
-            margin: 0 0 0 13px;
-            background-color: #fff;
+.pdfFullView{
+    .top-content .tab-wrapper {
+        ul.nav{
+            width: 100% !important;
+            height: 36px;
+            margin: 0 auto;
+            float: unset !important;
+            background: #c6d9e7;
+            border-radius: 4px;
+            // padding: 3px;
+            margin-bottom: 5px;
             li{
-                background-color: transparent;
-                border: none;
-                border-radius: 0;
-                span{
-                    color: #6d6d6d;
-                }
-                .badge{
-                    color: $white;
-                }
-                &.active{
-                    // border-bottom: 2px solid #007BB6;
-                    background: #007BB6;
+                width: auto !important;
+                padding: 0;
+                button{
+                    padding: 8px 15px;
+                    border-radius: 4px; 
+                    &.active{
+                        background: #2a7bb6;
+                        span{
+                            color: $white;
+                        }
+                        .badge{
+                            color: $blue;
+                            background-color: $white;
+                        }
+                    }
                     span{
-                        color: $white;
+                        color: $blue;
                     }
                     .badge{
                         color: $blue;
+                        background-color: #a9c4d9;
                     }
                 }
             }
         }
     }
-    &.pdfviewOpen{
-        iframe{
-            height: 76vh;
-        }
+    iframe{
+        height: 76vh;
     }
 }
 .right-sidebar {
-    // width: 870px;
-    // max-width: 870px;
     width: calc(100% - 550px);
     max-width: calc(100% - 550px);
     height: 83vh;
     background-color: $white;
-    padding: 5px 0;
-    // animation: 1s slide-left;
     .close-snippet {
         padding: 5px 10px;
         top: 3px;
@@ -677,8 +781,6 @@ a.btn-icon {
         right: 10px;
     }
     .tab-wrapper {
-
-        // padding: 5px;
         ul {
             width: calc(100% - 20px);
 
@@ -728,9 +830,8 @@ a.btn-icon {
 
         .timeline-item {
             border-radius: 5px;
-            // border: 1px solid #f0f0f0 !important;
             .name-wrapper{
-                width: calc(100% - 125px);
+                width: calc(100% - 135px);
                 .pdf-icon{
                     width: 25px;
                     height: 25px;
@@ -738,7 +839,7 @@ a.btn-icon {
                     background-size: 100%;
                 }
                 .pdf-name{
-                    max-width: calc(100% - 130px);
+                    max-width: calc(100% - 145px);
                     margin-top: 4px;
                 }
                 .page-nu{
@@ -750,22 +851,6 @@ a.btn-icon {
         }
     }
 }
-
-.search-field{
-    position: relative;
-    i{
-        position: absolute;
-        top: 9px;
-        left: 10px;
-        color: $text-200;
-        font-size: 16px;
-    }
-    input{
-        font-size: 14px;
-        padding-left: 30px;
-    }
-}
-// background
 .background {
     position: fixed;
     width: 100%;
